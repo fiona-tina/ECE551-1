@@ -1,0 +1,10 @@
+Grading at 09/03/2018:21:08:29.645419
+For commit ID e28bd22d90ceaffe63bc012cfc7c9b12da0af771
+I expected to find a file called 'answer.txt' but it did not exist
+(or was not a regular file)
+Here are the files that I can find:
+answers.txt
+ours.txt
+README
+
+Overall Grade: FAILED
