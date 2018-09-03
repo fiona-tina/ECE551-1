@@ -1,7 +1,0 @@
-Grading at 09/03/2018:17:03:01.759669
-For commit ID d7fa0802240268090bf50a9b7b60edeff0ce9c10
-Checking errors.txt
-Line_4_did_not_match
-Your file did not match the expected ouput
-
-Overall Grade: FAILED
