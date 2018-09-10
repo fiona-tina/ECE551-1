@@ -7,7 +7,7 @@ typedef struct retire_info_tag {
   double rate_of_return;
 } retire_info_t;
 
-double retirement(int startAge, double initial, retire_info_t working, retire_info_t retired) {
+void retirement(int startAge, double initial, retire_info_t working, retire_info_t retired) {
   int totalMonth = working.month;
   int year = totalMonth / 12;
   int month = totalMonth % 12;
@@ -28,8 +28,10 @@ int main() {
   working.rate_of_return = 0.045 / 12;
 
   for (int i = 0; i < 489; i++) {
-    startIni = retirement(startMonth, startIni, working, working);
+    retirement(startMonth, startIni, working, working);
     working.month++;
+    startIni += startIni * working.rate_of_return;
+    startIni += working.contribution;
   }
 
   retirementing.month = working.month;
@@ -37,8 +39,10 @@ int main() {
   retirementing.rate_of_return = 0.01 / 12;
 
   for (int i = 0; i < 384; i++) {
-    startIni = retirement(startMonth, startIni, retirementing, working);
+    retirement(startMonth, startIni, retirementing, working);
     retirementing.month++;
+    startIni += startIni * retirementing.rate_of_return;
+    startIni += retirementing.contribution;
   }
   return EXIT_SUCCESS;
 }
