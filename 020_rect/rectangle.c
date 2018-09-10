@@ -17,13 +17,43 @@ int max(int a, int b) {
 }
 
 // Declare your rectangle structure here!
+typedef struct rectangle_tag {
+  int x;
+  int y;
+  int width;
+  int height;
 
+} rectangle_t;
 rectangle_t canonicalize(rectangle_t r) {
   // WRITE THIS FUNCTION
+  if (r.width < 0) {
+    r.x += r.width;
+    r.width = -r.width;
+  }
+  if (r.height < 0) {
+    r.y += r.height;
+    r.height = -r.height;
+  }
   return r;
 }
 rectangle_t intersection(rectangle_t r1, rectangle_t r2) {
   // WRITE THIS FUNCTION
+  r1 = canonicalize(r1);
+  r2 = canonicalize(r2);
+
+  int a = r1.x, b = r1.y, c = r1.x + r1.width, d = r1.y + r1.height, e = r2.x, f = r2.y,
+      g = r2.x + r2.width, h = r2.y + r2.height;
+
+  if (b > h || e > c || f > d || a > g) {
+    r1.width = 0;
+    r1.height = 0;
+  }
+  else {
+    r1.x = max(a, e);
+    r1.y = max(b, f);
+    r1.width = min(c, g) - r1.x;
+    r1.height = min(d, h) - r1.y;
+  }
   return r1;
 }
 
@@ -32,7 +62,8 @@ void printRectangle(rectangle_t r) {
   r = canonicalize(r);
   if (r.width == 0 && r.height == 0) {
     printf("<empty>\n");
-  } else {
+  }
+  else {
     printf("(%d,%d) to (%d,%d)\n", r.x, r.y, r.x + r.width, r.y + r.height);
   }
 }
