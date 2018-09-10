@@ -1,8 +1,0 @@
-Grading at 09/10/2018:15:27:09.488365
-For commit ID 59b810e4fa518112a92fa6653990876558dfd8d7
-Checking for 'void retirement(int startAge, double initial, retire_info_t working, retire_info_t retired)'
-[32mfound 'void retirement(int startAge, double initial, retire_info_t working, retire_info_t retired)' in your source code 'retirement.c'[0m
-[32mfound strucutre retire_info_tag in retirement.c[0m
-[31mdid not found int months in strucutre retire_info_tag[0m
-[31mCannot continue testing[0m
-Overall Grade: F
