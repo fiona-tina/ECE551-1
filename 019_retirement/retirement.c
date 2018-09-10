@@ -7,14 +7,14 @@ typedef struct retire_info_tag {
   double rate_of_return;
 } retire_info_t;
 
-void retirement(int startAge, double * initial, retire_info_t info_t) {
-  int totalMonth = info_t.month;
+double retirement(int startAge, double initial, retire_info_t working, retire_info_t retired) {
+  int totalMonth = working.month;
   int year = totalMonth / 12;
   int month = totalMonth % 12;
 
-  printf("Age %3d month %2d you have $%.2lf\n", year, month, *initial);
-  *initial += *initial * info_t.rate_of_return;
-  *initial += info_t.contribution;
+  printf("Age %3d month %2d you have $%.2lf\n", year, month, initial);
+  initial += initial * working.rate_of_return;
+  initial += working.contribution;
 }
 
 int main() {
@@ -28,7 +28,7 @@ int main() {
   working.rate_of_return = 0.045 / 12;
 
   for (int i = 0; i < 489; i++) {
-    retirement(startMonth, &startIni, working);
+    startIni = retirement(startMonth, startIni, working, working);
     working.month++;
   }
 
@@ -37,7 +37,7 @@ int main() {
   retirementing.rate_of_return = 0.01 / 12;
 
   for (int i = 0; i < 384; i++) {
-    retirement(startMonth, &startIni, retirementing);
+    startIni = retirement(startMonth, startIni, retirementing, working);
     retirementing.month++;
   }
   return EXIT_SUCCESS;
