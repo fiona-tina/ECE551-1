@@ -14,6 +14,8 @@ void retirement(int startAge, double initial, retire_info_t working, retire_info
   for (int i = 0; i < working.months; i++) {
     printf("Age %3d month %2d you have $%.2lf\n", year, month, initial);
     totalMonth++;
+    year = totalMonth / 12;
+    month = totalMonth % 12;
 
     initial += initial * working.rate_of_return;
     initial += working.contribution;
