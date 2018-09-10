@@ -8,13 +8,26 @@ typedef struct retire_info_tag {
 } retire_info_t;
 
 void retirement(int startAge, double initial, retire_info_t working, retire_info_t retired) {
-  int totalMonth = working.months;
+  int totalMonth = startAge;
   int year = totalMonth / 12;
   int month = totalMonth % 12;
+  for (int i = 0; i < working.months; i++) {
+    printf("Age %3d month %2d you have $%.2lf\n", year, month, initial);
+    totalMonth++;
 
-  printf("Age %3d month %2d you have $%.2lf\n", year, month, initial);
-  initial += initial * working.rate_of_return;
-  initial += working.contribution;
+    initial += initial * working.rate_of_return;
+    initial += working.contribution;
+  }
+
+  for (int i = 0; i < retired.months; i++) {
+    printf("Age %3d month %2d you have $%.2lf\n", year, month, initial);
+    totalMonth++;
+    year = totalMonth / 12;
+    month = totalMonth % 12;
+
+    initial += initial * retired.rate_of_return;
+    initial += retired.contribution;
+  }
 }
 
 int main() {
@@ -22,27 +35,15 @@ int main() {
   retire_info_t retirementing;
   int startMonth = 327;
   double startIni = 21345;
-  ;
-  working.months = startMonth;
+
+  working.months = 489;
   working.contribution = 1000;
   working.rate_of_return = 0.045 / 12;
 
-  for (int i = 0; i < 489; i++) {
-    retirement(startMonth, startIni, working, working);
-    working.months++;
-    startIni += startIni * working.rate_of_return;
-    startIni += working.contribution;
-  }
-
-  retirementing.months = working.months;
+  retirementing.months = 384;
   retirementing.contribution = -4000;
   retirementing.rate_of_return = 0.01 / 12;
+  retirement(startMonth, startIni, working, retirementing);
 
-  for (int i = 0; i < 384; i++) {
-    retirement(startMonth, startIni, retirementing, working);
-    retirementing.months++;
-    startIni += startIni * retirementing.rate_of_return;
-    startIni += retirementing.contribution;
-  }
   return EXIT_SUCCESS;
 }
