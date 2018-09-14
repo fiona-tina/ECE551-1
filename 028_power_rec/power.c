@@ -5,6 +5,6 @@ unsigned power(unsigned x, unsigned y) {
   else if (y == 1)
     return x;
   else {
-    return power(x * x, y - 1);
+    return x * power(x, y - 1);
   }
 }
