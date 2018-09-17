@@ -7,15 +7,15 @@ size_t maxSeq(int * a, size_t n) {
     return 0;
   if (n == 1)
     return tmp;
-  for (int i = 1; i < n; i++) {
+  for (size_t i = 1; i < n; i++) {
     if (a[i] > a[i - 1]) {
       tmp++;
     }
     else {
       if (tmp > res) {
         res = tmp;
-        tmp = 1;
       }
+      tmp = 1;
     }
   }
   return res;
