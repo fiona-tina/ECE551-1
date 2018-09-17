@@ -10,11 +10,10 @@ size_t maxSeq(int * a, size_t n) {
   for (size_t i = 1; i < n; i++) {
     if (a[i] > a[i - 1]) {
       tmp++;
+      if (tmp > res)
+        res = tmp;
     }
     else {
-      if (tmp > res) {
-        res = tmp;
-      }
       tmp = 1;
     }
   }
