@@ -1,9 +1,0 @@
-Grading at 09/17/2018:05:05:32.428726
-For commit ID 9a32ba40d25db5a751962054a844942cc159dcac
-Attempting to compile test.c
-The code did not compile
-Line_3_did_not_match
-Your file did not match the expected ouput
-Your output did not match what we expected.
-
-Overall Grade: FAILED
