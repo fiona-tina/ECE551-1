@@ -1,3 +1,5 @@
+#include <stddef.h>
+
 size_t maxSeq(int * a, size_t n) {
   size_t res = 1;
   size_t tmp = 1;
