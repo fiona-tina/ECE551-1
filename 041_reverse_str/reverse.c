@@ -4,7 +4,7 @@
 
 void reverse(char * str) {
   size_t length = strlen(str);
-  if (length == 0)
+  if (str == NULL)
     return;
   char p[length];
   strcpy(p, str);
