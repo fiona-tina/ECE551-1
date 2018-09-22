@@ -3,9 +3,10 @@
 #include <string.h>
 
 void reverse(char * str) {
-  size_t length = strlen(str);
   if (str == NULL)
     return;
+  size_t length = strlen(str);
+
   char p[length];
   strcpy(p, str);
   for (size_t i = 0; i < length; i++) {
