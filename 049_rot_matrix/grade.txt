@@ -1,11 +1,35 @@
-Grading at 09/26/2018:21:19:15.254454
-For commit ID d8ae9b90846a70cb8fcfbc2ca578a4710828f49d
-rotateMatrix.c: In function ‘main’:
-rotateMatrix.c:60:10: error: unused variable ‘ch’ [-Werror=unused-variable]
-   int i, ch;
-          ^~
-cc1: all warnings being treated as errors
-
-[31mError: failed to compile your code[0m
-[31mCannot continue testing[0m
-Overall Grade: F
+Grading at 09/26/2018:21:20:40.102096
+For commit ID 516db669cc2e9447379ce89f4607b89e5fc34482
+[32mSuccessfully compiled ['rotateMatrix.c'].[0m
+********************test case 1********************
+Exit status of your code: 1
+[32mValgrind was clean[0m
+[32mCorrect: your code indicates this is a failure case.[0m
+[32mpassed test case 1[0m
+********************test case 2********************
+Exit status of your code: 1
+[32mValgrind was clean[0m
+[32mCorrect: your code indicates this is a failure case.[0m
+[32mpassed test case 2[0m
+********************test case 3********************
+Exit status of your code: 1
+[32mValgrind was clean[0m
+[32mCorrect: your code indicates this is a failure case.[0m
+[32mpassed test case 3[0m
+********************test case 4********************
+Exit status of your code: 1
+[32mValgrind was clean[0m
+[32mCorrect: your code indicates this is a failure case.[0m
+[32mpassed test case 4[0m
+********************test case 5********************
+Exit status of your code: 0
+[32mValgrind was clean[0m
+[31mtest case 5 Incorrect: Your code doesn't detect wrong case.[0m
+[31mfailed test case 5[0m
+********************test case 6********************
+Exit status of your code: 0
+[32mValgrind was clean[0m
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 6[0m
+[31mfailed 1 out of 6 test cases[0m
+Overall Grade: C
