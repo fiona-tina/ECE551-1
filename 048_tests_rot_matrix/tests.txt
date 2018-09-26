@@ -1,0 +1,17 @@
+
+1.txt
+2.txt
+3.txt
+4.txt
+5.txt
+6.txt
+56.txt
+10.txt
+someinput
+some input
+I want some inputs
+7.txt
+8.txt
+9.txt
+input is foooooooooooo d d d d d
+   
