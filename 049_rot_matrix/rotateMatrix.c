@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void read_line(char line[], FILE * f) {
+void read_line(char line[], FILE * f, int lineNum) {
   int i;
   int ch;
 
@@ -22,8 +22,12 @@ void read_line(char line[], FILE * f) {
     }
     else if (ch == EOF) {
       if (i == 10) {
-        fprintf(stderr, "%s\n", "unexpected EOF");
-        exit(EXIT_FAILURE);
+        if (lineNum == 9)
+          return;
+        else {
+          fprintf(stderr, "%s\n", "unexpected EOF");
+          exit(EXIT_FAILURE);
+        }
       }
       else {
         fprintf(stderr, "%s\n", "line too short");
@@ -68,7 +72,7 @@ int main(int argc, char * argv[]) {
     exit(EXIT_FAILURE);
   }
   for (i = 0; i < 10; i++) {
-    read_line(m[i], f);
+    read_line(m[i], f, i);
   }
   if ((ch = fgetc(f)) != EOF) {
     fprintf(stderr, "Too long\n");
