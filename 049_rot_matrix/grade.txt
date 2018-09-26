@@ -1,36 +1,11 @@
-Grading at 09/26/2018:20:49:37.181015
-For commit ID 3c5438b775bcc25eb6e5e7fd4336af34c97a874f
-[32mSuccessfully compiled ['rotateMatrix.c'].[0m
-********************test case 1********************
-Exit status of your code: 1
-[32mValgrind was clean[0m
-[32mCorrect: your code indicates this is a failure case.[0m
-[32mpassed test case 1[0m
-********************test case 2********************
-Exit status of your code: 1
-[32mValgrind was clean[0m
-[32mCorrect: your code indicates this is a failure case.[0m
-[32mpassed test case 2[0m
-********************test case 3********************
-Exit status of your code: 1
-[32mValgrind was clean[0m
-[32mCorrect: your code indicates this is a failure case.[0m
-[32mpassed test case 3[0m
-********************test case 4********************
-Exit status of your code: 1
-[32mValgrind was clean[0m
-[32mCorrect: your code indicates this is a failure case.[0m
-[32mpassed test case 4[0m
-********************test case 5********************
-Exit status of your code: 1
-[32mValgrind was clean[0m
-[32mCorrect: your code indicates this is a failure case.[0m
-[32mpassed test case 5[0m
-********************test case 6********************
-Exit status of your code: 1
-[32mValgrind was clean[0m
-Your output has 0 lines, but we expected 10 lines.
-[31mIncorrect: your output did not match the expected output.[0m
-[31mfailed test case 6[0m
-[31mfailed 1 out of 6 test cases[0m
-Overall Grade: C
+Grading at 09/26/2018:21:19:15.254454
+For commit ID d8ae9b90846a70cb8fcfbc2ca578a4710828f49d
+rotateMatrix.c: In function ‘main’:
+rotateMatrix.c:60:10: error: unused variable ‘ch’ [-Werror=unused-variable]
+   int i, ch;
+          ^~
+cc1: all warnings being treated as errors
+
+[31mError: failed to compile your code[0m
+[31mCannot continue testing[0m
+Overall Grade: F
