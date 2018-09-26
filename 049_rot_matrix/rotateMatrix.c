@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void read_line(char line[], FILE * f, int lineNum) {
+void read_line(char line[], FILE * f) {
   int i;
   int ch;
 
@@ -57,7 +57,7 @@ void rot_matrix(char m[10][10]) {
 int main(int argc, char * argv[]) {
   char m[10][10];
   FILE * f;
-  int i, ch;
+  int i;
 
   if (argc != 2) {  //too many arg
     fprintf(stderr, "Usage: rotateMatrix input\n");
@@ -68,7 +68,7 @@ int main(int argc, char * argv[]) {
     exit(EXIT_FAILURE);
   }
   for (i = 0; i < 10; i++) {
-    read_line(m[i], f, i);
+    read_line(m[i], f);
   }
   //if ((ch = fgetc(f)) != EOF) {
   //  fprintf(stderr, "Too long\n");
