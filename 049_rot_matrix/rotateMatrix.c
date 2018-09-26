@@ -57,7 +57,7 @@ void rot_matrix(char m[10][10]) {
 int main(int argc, char * argv[]) {
   char m[10][10];
   FILE * f;
-  int i;
+  int ch, i;
 
   if (argc != 2) {  //too many arg
     fprintf(stderr, "Usage: rotateMatrix input\n");
@@ -70,10 +70,13 @@ int main(int argc, char * argv[]) {
   for (i = 0; i < 10; i++) {
     read_line(m[i], f);
   }
-  //if ((ch = fgetc(f)) != EOF) {
-  //  fprintf(stderr, "Too long\n");
-  //  exit(EXIT_FAILURE);
-  //}
+  ch = fgetc(f);
+  ch = fgetc(f);
+
+  if (ch != EOF) {
+    fprintf(stderr, "Too long\n");
+    exit(EXIT_FAILURE);
+  }
 
   fclose(f);
 
