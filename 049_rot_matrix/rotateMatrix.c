@@ -10,7 +10,6 @@ void read_line(char line[], FILE * f, int lineNum) {
     ch = fgetc(f);
     if (ch == '\n') {
       if (i == 10) {
-        line[10] = '\0';
         return;
         //finished a line
       }
