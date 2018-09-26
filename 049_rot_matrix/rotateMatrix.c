@@ -10,6 +10,7 @@ void read_line(char line[], FILE * f, int lineNum) {
     ch = fgetc(f);
     if (ch == '\n') {
       if (i == 10) {
+        line[10] = '\0';
         return;
         //finished a line
       }
@@ -39,7 +40,7 @@ void read_line(char line[], FILE * f, int lineNum) {
         fprintf(stderr, "%s\n", "line too long");
         exit(EXIT_FAILURE);
       }
-      break;
+      //break;
     }
   }
 }
@@ -69,10 +70,10 @@ int main(int argc, char * argv[]) {
   for (i = 0; i < 10; i++) {
     read_line(m[i], f, i);
   }
-  if ((ch = fgetc(f)) != EOF) {
-    fprintf(stderr, "Too long\n");
-    exit(EXIT_FAILURE);
-  }
+  //if ((ch = fgetc(f)) != EOF) {
+  //  fprintf(stderr, "Too long\n");
+  //  exit(EXIT_FAILURE);
+  //}
 
   fclose(f);
 
