@@ -22,12 +22,8 @@ void read_line(char line[], FILE * f, int lineNum) {
     }
     else if (ch == EOF) {
       if (i == 10) {
-        if (lineNum == 9)
-          return;
-        else {
-          fprintf(stderr, "%s\n", "unexpected EOF");
-          exit(EXIT_FAILURE);
-        }
+        fprintf(stderr, "%s\n", "unexpected EOF");
+        exit(EXIT_FAILURE);
       }
       else {
         fprintf(stderr, "%s\n", "line too short");
