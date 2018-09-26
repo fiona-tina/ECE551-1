@@ -1,0 +1,14 @@
+Grading at 09/26/2018:20:34:25.080640
+For commit ID e719c27392e2db3510024d7e92b74679f3789927
+rotateMatrix.c: In function ‘rot_matrix’:
+rotateMatrix.c:51:14: error: ‘c’ undeclared (first use in this function)
+       printf(c %, m[9 - j][i]);
+              ^
+rotateMatrix.c:51:14: note: each undeclared identifier is reported only once for each function it appears in
+rotateMatrix.c:51:17: error: expected expression before ‘,’ token
+       printf(c %, m[9 - j][i]);
+                 ^
+
+[31mError: failed to compile your code[0m
+[31mCannot continue testing[0m
+Overall Grade: F
