@@ -48,7 +48,7 @@ void read_line(char line[], FILE * f) {
 void rot_matrix(char m[10][10]) {
   for (int i = 0; i < 10; i++) {
     for (int j = 0; j < 10; j++) {
-      printf(c %, m[9 - j][i]);
+      printf("%c", m[9 - j][i]);
     }
     printf("\n");
   }
