@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 //This function is used to figure out the ordering
 //of the strings in qsort.  You do not need
 //to modify it.
@@ -16,9 +15,38 @@ void sortData(char ** data, size_t count) {
   qsort(data, count, sizeof(char *), stringOrder);
 }
 
+void sortInputfile(FILE * f) {
+  char ** lines = NULL;
+  char * curr = NULL;
+  size_t linecap;
+  size_t i = 0;
+  while (getline(&curr, &linecap, f) >= 0) {
+    lines = realloc(lines, (i + 1) * sizeof(*lines));
+    lines[i] = curr;
+    curr = NULL;
+    i++;
+  }
+  free(curr);
+  sortData(lines, i);
+  for (size_t j = 0; j < i; j++) {
+    printf("%s", lines[j]);
+    free(lines[j]);
+  }
+  free(lines);
+  return;
+}
+
 int main(int argc, char ** argv) {
-  
+  if (argc == 1) {
+    sortInputfile(stdin);
+  }
+  else {  //argc>1
+    for (int i = 1; i < argc; i++) {
+      FILE * f = fopen(argv[i], "r");
+      sortInputfile(f);
+    }
+  }
   //WRITE YOUR CODE HERE!
-  
+
   return EXIT_SUCCESS;
 }
