@@ -1,0 +1,8 @@
+Grading at 09/28/2018:18:27:04.978595
+For commit ID 1256255146b992fe70e1c526c105620f7d812908
+[32mSuccessfully compiled ['sortLines.c'].[0m
+********************test case 1********************
+Exit status of your code: 139
+[31mtest case 1 Error: Your program had segmentation fault[0m
+[31mCannot continue testing[0m
+Overall Grade: F
