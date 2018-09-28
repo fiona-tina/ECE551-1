@@ -1,8 +1,25 @@
-Grading at 09/28/2018:18:35:25.492747
-For commit ID 069b137a5e0f522e94501e3abdeaf4ca3db8331d
+Grading at 09/28/2018:18:48:49.279012
+For commit ID 87c28049102bc4eeb339681f3a8392d2c8b74723
 [32mSuccessfully compiled ['sortLines.c'].[0m
 ********************test case 1********************
-Exit status of your code: 139
-[31mtest case 1 Error: Your program had segmentation fault[0m
-[31mCannot continue testing[0m
-Overall Grade: F
+Exit status of your code: 1
+[32mValgrind was clean[0m
+[32mCorrect: your code indicates this is a failure case.[0m
+[32mpassed test case 1[0m
+********************test case 2********************
+Exit status of your code: 0
+[32mValgrind was clean[0m
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 2[0m
+********************test case 3********************
+Exit status of your code: 0
+[32mValgrind was clean[0m
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 3[0m
+********************test case 4********************
+Exit status of your code: 0
+[32mValgrind was clean[0m
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 4[0m
+[32msuccessfully passed all 4 test cases[0m
+Overall Grade: A
