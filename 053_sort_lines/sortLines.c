@@ -43,6 +43,10 @@ int main(int argc, char ** argv) {
   else {  //argc>1
     for (int i = 1; i < argc; i++) {
       FILE * f = fopen(argv[i], "r");
+      if (f == NULL) {
+        fprintf(stderr, "failed to open input\n");
+        exit(EXIT_FAILURE);
+      }
       sortInputfile(f);
       if (fclose(f) != 0) {
         fprintf(stderr, "failed to close input\n");
