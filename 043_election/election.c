@@ -58,7 +58,14 @@ state_t parseLine(const char * line) {
 
 unsigned int countElectoralVotes(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
   //STEP 2: write me
-  return 0;
+  unsigned int res = 0;
+  if (stateData == NULL || voteCounts == NULL)
+    errorHappened(5);
+  for (size_t i = 0; i < nStates; i++) {
+    if (voteCounts[i] > stateData->population / 2)
+      res += stateData->electoralVotes;
+  }
+  return res;
 }
 
 void printRecounts(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
