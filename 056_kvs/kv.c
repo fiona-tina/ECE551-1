@@ -42,7 +42,7 @@ kvarray_t * readKVs(const char * fname) {
     memcpy(valPart, p, len1 + 1);
     valPart[len1] = '\0';
 
-    printf("key: %s, val: %s\n", keyPart, valPart);
+    //printf("key: %s, val: %s\n", keyPart, valPart);
     //free(line);
     pairs = realloc(pairs, (size_pairs + 1) * sizeof(*pairs));
     //size_pairs++;
@@ -59,7 +59,6 @@ kvarray_t * readKVs(const char * fname) {
     free(valPart);
     free(keyPart);
   }
-  printf("************pairs[0]: %s", pairs[0].key);
   free(line);
   fclose(f);
   res = malloc(sizeof(*res));
