@@ -62,16 +62,39 @@ unsigned int countElectoralVotes(state_t * stateData, uint64_t * voteCounts, siz
   if (stateData == NULL || voteCounts == NULL)
     errorHappened(5);
   for (size_t i = 0; i < nStates; i++) {
-    if (voteCounts[i] > stateData->population / 2)
+    if (voteCounts[i] > stateData[i].population / 2)
       res += stateData->electoralVotes;
   }
   return res;
 }
 
 void printRecounts(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
+  if (stateData == NULL || voteCounts == NULL)
+    errorHappened(6);
+  for (size_t i = 0; i < nStates; i++) {
+    double percentage = (double)voteCounts[i] / stateData[i].population;
+    // printf("%f  ", percentage);
+    if (percentage >= 0.495 && percentage <= 0.505)
+      printf("%s requires a recount (Candidate A has %.2f%% of the vote)\n",
+             stateData[i].name,
+             percentage * 100.0);
+  }
+
   //STEP 3: write me
 }
 
 void printLargestWin(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
   //STEP 4: write me
+  if (stateData == NULL || voteCounts == NULL)
+    errorHappened(7);
+  double max = 0;
+  size_t stateNo = 0;
+  for (size_t i = 0; i < nStates; i++) {
+    double temp = (double)voteCounts[i] / stateData[i].population;
+    if (temp > max) {
+      stateNo = i;
+      max = temp;
+    }
+  }
+  printf("Candidate A won %s with %.2f%% of the vote\n", stateData[stateNo].name, max * 100.0);
 }
