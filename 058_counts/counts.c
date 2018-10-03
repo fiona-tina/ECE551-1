@@ -42,7 +42,7 @@ void addCount(counts_t * c, const char * name) {
 
   oneCount = &c->strInfos[c->sz];
   c->sz++;
-  oneCount->aStr = malloc(strlen(name));
+  oneCount->aStr = malloc(strlen(name) + 1);
   strcpy(oneCount->aStr, name);
   if (oneCount->aStr == NULL) {
     someErr();
@@ -64,7 +64,7 @@ void printCounts(counts_t * c, FILE * outFile) {
 
 void freeCounts(counts_t * c) {
   for (size_t i = 0; i < c->sz; i++) {
-    free(c->strInfos->aStr);
+    free(c->strInfos[i].aStr);
   }
   free(c->strInfos);
   free(c);
