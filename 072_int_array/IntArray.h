@@ -20,9 +20,9 @@ class IntArray
   bool operator==(const IntArray & rhs) const;
   bool operator!=(const IntArray & rhs) const;
   ~IntArray();
-  friend std::ostream & operator<<(std::ostream & s, const IntArray & rhs);
+  //friend std::ostream & operator<<(std::ostream & s, const IntArray & rhs);
 };
 
-//std::ostream & operator<<(std::ostream & s, const IntArray & rhs);
+std::ostream & operator<<(std::ostream & s, const IntArray & rhs);
 
 #endif
