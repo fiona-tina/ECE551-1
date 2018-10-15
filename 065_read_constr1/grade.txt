@@ -1,7 +1,8 @@
-Grading at 10/15/2018:16:30:48.050850
-For commit ID 7bc194cc74808fd68c06bb1bdedff680424da4cb
+Grading at 10/15/2018:16:37:06.632145
+For commit ID 67bc1d137e687218fbee604d6260c529d0ca9371
 Attempting to compile:
-g++ -std=c++11 -pedantic -Wall -cpp code.cpp
-Your Makefile did not produce a binary called 'code'.   Please correct that
+g++ -std=c++11 -pedantic -Wall code.cpp -o code
+Your Makefile produced a binary called 'code'
+You do not have answer.txt
 
 Overall Grade: FAILED
