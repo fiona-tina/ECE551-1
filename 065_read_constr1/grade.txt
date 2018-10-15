@@ -1,8 +1,9 @@
-Grading at 10/15/2018:16:37:06.632145
-For commit ID 67bc1d137e687218fbee604d6260c529d0ca9371
+Grading at 10/15/2018:16:40:52.163029
+For commit ID cd2a730ecd874a28389c25338bab81cd157c47af
 Attempting to compile:
 g++ -std=c++11 -pedantic -Wall code.cpp -o code
 Your Makefile produced a binary called 'code'
-You do not have answer.txt
+Your file matched the expected output
+Your output matched what we expected
 
-Overall Grade: FAILED
+Overall Grade: PASSED
