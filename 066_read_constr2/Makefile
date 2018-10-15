@@ -1,2 +1,2 @@
-code : code.cpp
+code : code.cpp code.h
 	g++ -std=c++11 -pedantic -Wall -Werror code.cpp -o code
