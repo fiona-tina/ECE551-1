@@ -19,14 +19,16 @@ IntArray::~IntArray() {
 }
 
 IntArray & IntArray::operator=(const IntArray & rhs) {
-  int * tmp = new int[rhs.numElements];
-  numElements = rhs.numElements;
-  for (int i = 0; i < numElements; i++) {
-    tmp[i] = rhs.data[i];
+  if (this != &rhs) {
+    int * tmp = new int[rhs.numElements];
+    numElements = rhs.numElements;
+    for (int i = 0; i < numElements; i++) {
+      tmp[i] = rhs.data[i];
+    }
+    delete[] data;
+    data = tmp;
+    //delete[] tmp;
   }
-  delete[] data;
-  data = tmp;
-  //delete[] tmp;
   return *this;
 }
 const int & IntArray::operator[](int index) const {
