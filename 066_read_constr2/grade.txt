@@ -1,9 +1,8 @@
-Grading at 10/15/2018:16:59:09.775876
-For commit ID 7c7a531f087766d704617cc8a9a18c0a2c3450b3
+Grading at 10/15/2018:17:05:04.603423
+For commit ID 2cde89e7cc571a41982badcf8afbf85c1faafc5c
 Attempting to compile:
 g++ -std=c++11 -pedantic -Wall -Werror code.cpp -o code
-Line_4_did_not_match
-Your file did not match the expected ouput
-Your output did not match what we expected.
+Your file matched the expected output
+Your output matched what we expected
 
-Overall Grade: FAILED
+Overall Grade: PASSED
