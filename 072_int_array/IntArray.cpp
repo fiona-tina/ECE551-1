@@ -73,10 +73,12 @@ std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {
   int n = rhs.size();
   if (n == 0)
     s << "{}";
-  s << "{";
-  for (int i = 0; i < n - 1; i++) {
-    s << rhs[i] << ", ";
+  else {
+    s << "{";
+    for (int i = 0; i < n - 1; i++) {
+      s << rhs[i] << ", ";
+    }
+    s << rhs[n - 1] << "}";
   }
-  s << rhs[n - 1] << "}";
   return s;
 }
