@@ -1,6 +1,7 @@
-Grading at 10/15/2018:16:18:26.681658
-For commit ID 31a0f4e145d5394434bd20c4130d7f79e5311f5c
+Grading at 10/15/2018:16:30:48.050850
+For commit ID 7bc194cc74808fd68c06bb1bdedff680424da4cb
 Attempting to compile:
-You do not have a Makefile
+g++ -std=c++11 -pedantic -Wall -cpp code.cpp
+Your Makefile did not produce a binary called 'code'.   Please correct that
 
 Overall Grade: FAILED
