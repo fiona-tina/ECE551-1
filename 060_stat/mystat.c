@@ -19,33 +19,41 @@ char * time2str(const time_t * when, long ns) {
   return ans;
 }
 
-void step1(struct stat st, char * fileName) {
+char step1(struct stat st, char * fileName) {
   printf("  File: ‘%s’\n", fileName);
-
+  char res;
   char * s;
   switch (st.st_mode & S_IFMT) {
     case S_IFBLK:
       s = "block special file\n";
+      res = 'b';
       break;
     case S_IFCHR:
       s = "character special file";
+      res = 'c';
       break;
     case S_IFDIR:
+      res = 'd';
       s = "directory";
       break;
     case S_IFIFO:
+      res = 'p';
       s = "fifo";
       break;
     case S_IFLNK:
+      res = 'l';
       s = "symbolic link";
       break;
     case S_IFREG:
+      res = '-';
       s = "regular file";
       break;
     case S_IFSOCK:
+      res = 's';
       s = "socket\n";
       break;
     default:
+      res = '?';
       s = "unknow file";
       break;
   }
@@ -60,8 +68,25 @@ void step1(struct stat st, char * fileName) {
          st.st_dev,
          st.st_ino,
          st.st_nlink);
-}
 
+  return res;
+}
+void step2(char des, struct stat st) {
+  char permissions[] = "----------";
+  permissions[0] = des;
+
+  permissions[1] = (st.st_mode & S_IRUSR) != 0 ? 'r' : '-';
+  permissions[2] = (st.st_mode & S_IWUSR) != 0 ? 'w' : '-';
+  permissions[3] = (st.st_mode & S_IXUSR) != 0 ? 'x' : '-';
+  permissions[4] = (st.st_mode & S_IRGRP) != 0 ? 'r' : '-';
+  permissions[5] = (st.st_mode & S_IWGRP) != 0 ? 'w' : '-';
+  permissions[6] = (st.st_mode & S_IXGRP) != 0 ? 'x' : '-';
+  permissions[7] = (st.st_mode & S_IROTH) != 0 ? 'r' : '-';
+  permissions[8] = (st.st_mode & S_IWOTH) != 0 ? 'w' : '-';
+  permissions[9] = (st.st_mode & S_IXOTH) != 0 ? 'x' : '-';
+
+  printf("Access: (%04o/%s)\n", st.st_mode & ~S_IFMT, permissions);
+}
 int main(int argc, char ** argv) {
   if (argc != 2) {
     fprintf(stderr, "There should have two args");
@@ -73,5 +98,6 @@ int main(int argc, char ** argv) {
     perror("stat");
     exit(EXIT_FAILURE);
   }
-  step1(st, argv[1]);
+  char des = step1(st, argv[1]);
+  step2(des, st);
 }
