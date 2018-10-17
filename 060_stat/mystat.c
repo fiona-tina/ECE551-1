@@ -71,7 +71,7 @@ char step1(struct stat st, char * fileName) {
 
   return res;
 }
-void step2(char des, struct stat st) {
+void step2_3(char des, struct stat st) {
   char permissions[] = "----------";
   permissions[0] = des;
 
@@ -84,8 +84,15 @@ void step2(char des, struct stat st) {
   permissions[7] = (st.st_mode & S_IROTH) != 0 ? 'r' : '-';
   permissions[8] = (st.st_mode & S_IWOTH) != 0 ? 'w' : '-';
   permissions[9] = (st.st_mode & S_IXOTH) != 0 ? 'x' : '-';
+  uid_t uid = st.st_uid;
+  gid_t gid = st.st_gid;
+  struct passwd * pw;
+  struct group * gp;
 
-  printf("Access: (%04o/%s)\n", st.st_mode & ~S_IFMT, permissions);
+  pw = getpwuid(uid);
+  gp = getgrgid(gid);
+  printf("Access: (%04o/%s)  ", st.st_mode & ~S_IFMT, permissions);
+  printf("Uid: (%5d/%8s)   Gid: (%5d/%8s)\n", st.st_uid, pw->pw_name, gid, gp->gr_name);
 }
 int main(int argc, char ** argv) {
   if (argc != 2) {
@@ -99,5 +106,5 @@ int main(int argc, char ** argv) {
     exit(EXIT_FAILURE);
   }
   char des = step1(st, argv[1]);
-  step2(des, st);
+  step2_3(des, st);
 }
