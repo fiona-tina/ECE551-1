@@ -94,6 +94,22 @@ void step2_3(char des, struct stat st) {
   printf("Access: (%04o/%s)  ", st.st_mode & ~S_IFMT, permissions);
   printf("Uid: (%5d/%8s)   Gid: (%5d/%8s)\n", st.st_uid, pw->pw_name, gid, gp->gr_name);
 }
+
+void step4(struct stat st) {
+  char * timestr = time2str(&st.st_atime, st.st_atim.tv_nsec);
+  printf("Access: %s\n", timestr);
+  free(timestr);
+
+  timestr = time2str(&st.st_mtime, st.st_mtim.tv_nsec);
+  printf("Modify: %s\n", timestr);
+  free(timestr);
+
+  timestr = time2str(&st.st_ctime, st.st_ctim.tv_nsec);
+  printf("Change: %s\n", timestr);
+  free(timestr);
+
+  printf(" Birth: -\n");
+}
 int main(int argc, char ** argv) {
   if (argc != 2) {
     fprintf(stderr, "There should have two args");
@@ -107,4 +123,5 @@ int main(int argc, char ** argv) {
   }
   char des = step1(st, argv[1]);
   step2_3(des, st);
+  step4(st);
 }
