@@ -21,7 +21,16 @@ char * time2str(const time_t * when, long ns) {
 }
 
 char step1(struct stat st, char * fileName) {
-  printf("  File: %s\n", fileName);
+  if (S_ISLNK(st.st_mode)) {
+    char buf[256];
+    size_t b_size = readlink(fileName, buf, 256);
+    buf[b_size] = '\0';
+    printf("  File: %s -> %s\n", fileName, buf);
+  }
+  else {
+    printf("  File: %s\n", fileName);
+  }
+
   char res;
   char * s;
   switch (st.st_mode & S_IFMT) {
