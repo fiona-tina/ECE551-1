@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include <sys/sysmacros.h>
 #include <sys/types.h>
 #include <time.h>
 #include <unistd.h>
@@ -20,7 +21,7 @@ char * time2str(const time_t * when, long ns) {
 }
 
 char step1(struct stat st, char * fileName) {
-  printf("  File: ‘%s’\n", fileName);
+  printf("  File: %s\n", fileName);
   char res;
   char * s;
   switch (st.st_mode & S_IFMT) {
@@ -63,11 +64,22 @@ char step1(struct stat st, char * fileName) {
          st.st_blksize,
          s);
 
-  printf("Device: %lxh/%lud\tInode: %-10lu  Links: %lu\n",
-         st.st_dev,
-         st.st_dev,
-         st.st_ino,
-         st.st_nlink);
+  if (S_ISCHR(st.st_mode) || S_ISBLK(st.st_mode)) {
+    printf("Device: %lxh/%lud\tInode: %-10lu  Links: %-5lu Device type: %d,%d\n",
+           st.st_dev,
+           st.st_dev,
+           st.st_ino,
+           st.st_nlink,
+           major(st.st_rdev),
+           minor(st.st_rdev));
+  }
+  else {
+    printf("Device: %lxh/%lud\tInode: %-10lu  Links: %lu\n",
+           st.st_dev,
+           st.st_dev,
+           st.st_ino,
+           st.st_nlink);
+  }
 
   return res;
 }
@@ -111,17 +123,20 @@ void step4(struct stat st) {
   printf(" Birth: -\n");
 }
 int main(int argc, char ** argv) {
-  if (argc != 2) {
-    fprintf(stderr, "There should have two args");
+  if (argc < 2) {
+    fprintf(stderr, "There should have at least two args");
     exit(EXIT_FAILURE);
   }
-  struct stat st;
 
-  if (lstat(argv[1], &st) == -1) {
-    perror("stat");
-    exit(EXIT_FAILURE);
+  for (int i = 1; i < argc; ++i) {
+    struct stat st;
+
+    if (lstat(argv[i], &st) == -1) {
+      perror("stat");
+      exit(EXIT_FAILURE);
+    }
+    char des = step1(st, argv[i]);
+    step2_3(des, st);
+    step4(st);
   }
-  char des = step1(st, argv[1]);
-  step2_3(des, st);
-  step4(st);
 }
