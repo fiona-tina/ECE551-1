@@ -1,0 +1,2 @@
+sortLine: sortLine.cpp
+	g++ -o sortLine -ggdb3 -std=gnu++98 -pedantic -Wall -Werror sortLine.cpp

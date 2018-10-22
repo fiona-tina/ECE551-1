@@ -7,10 +7,18 @@ using namespace std;
 
 int main(int argc, char ** argv) {
   vector<string> strs;
-  ifstream in(argv[1]);
   string str;
-  while (getline(in, str)) {
-    strs.push_back(str);
+  if (argc == 2) {
+    ifstream is(argv[1]);
+
+    while (getline(is, str)) {
+      strs.push_back(str);
+    }
+  }
+  else {
+    while (cin >> str) {
+      strs.push_back(str);
+    }
   }
   sort(strs.begin(), strs.end());
   vector<string>::iterator it;
