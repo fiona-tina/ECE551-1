@@ -43,7 +43,7 @@ Matrix<T>::Matrix(const Matrix<T> & rhs) :
     numRows(rhs.numRows),
     numColumns(rhs.numColumns),
     rows(rhs.rows) {}
-}
+
 //	Matrix::~Matrix() {
 //		for (int i = 0; i < numRows; ++i) {
 //			delete rows[i];
