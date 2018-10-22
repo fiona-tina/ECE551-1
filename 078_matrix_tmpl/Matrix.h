@@ -17,6 +17,8 @@ class Matrix
   int numRows;
   int numColumns;
   vector<vector<T> > rows;
+
+ public:
   Matrix();
   Matrix(int r, int c);
   Matrix(const Matrix<T> & rhs);
@@ -30,7 +32,7 @@ class Matrix
   Matrix<T> operator+(const Matrix<T> & rhs) const;
 };
 template<typename T>
-Matrix<T>::Matrix() : numRows(0), numColumns(0), rows(NULL) {}
+Matrix<T>::Matrix() : numRows(0), numColumns(0) {}
 
 template<typename T>
 Matrix<T>::Matrix(int r, int c) :
@@ -105,10 +107,27 @@ template<typename T>
 std::ostream & operator<<(std::ostream & s, const Matrix<T> & rhs) {
   s << "[ ";
   for (int i = 0; i < rhs.getRows(); ++i) {
-    if (i < rhs.getRows() - 1)
-      s << rhs[i] << ", " << std::endl;
-    else
-      s << rhs[i];
+    if (i < rhs.getRows() - 1) {
+      for (int j = 0; j < rhs.getColumns(); ++j) {
+        if (j == 0) {
+          cout << "{" << rhs[i][j];
+          continue;
+        }
+        cout << ", " << rhs[i][j];
+      }
+      cout << "}" << endl;
+    }
+
+    else {
+      for (int j = 0; j < rhs.getColumns(); ++j) {
+        if (j == 0) {
+          cout << "{" << rhs[i][j];
+          continue;
+        }
+        cout << ", " << rhs[i][j];
+      }
+      cout << "}";
+    }
   }
   s << " ]";
   return s;
