@@ -1,0 +1,36 @@
+Grading at 10/22/2018:21:02:10.444696
+For commit ID 216f27c28dfbcdae5054cb8c7590140c1dc44698
+-----------------------------------------------
+testcase 1 : Testing with Matrix<int>
+...compiling...
+In file included from test.cpp:1:0:
+Matrix.h:46:1: error: expected declaration before ‘}’ token
+ }
+ ^
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 2 : Testing with Matrix<std::string>
+...compiling...
+In file included from test.cpp:1:0:
+Matrix.h:46:1: error: expected declaration before ‘}’ token
+ }
+ ^
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 3 : Testing with Matrix<(a custom class we wrote)>
+...compiling...
+In file included from test.cpp:1:0:
+Matrix.h:46:1: error: expected declaration before ‘}’ token
+ }
+ ^
+The code did not compile.  This test failed.
+--------------------------------------------
+Preparing to test assert fails...
+Compiling assertion failure tester...
+In file included from testAbort.cpp:1:0:
+Matrix.h:46:1: error: expected declaration before ‘}’ token
+ }
+ ^
+This code did not compile. Skipping remaining tests.
+
+Overall Grade: F
