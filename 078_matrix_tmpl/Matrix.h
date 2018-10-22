@@ -115,7 +115,7 @@ std::ostream & operator<<(std::ostream & s, const Matrix<T> & rhs) {
         }
         cout << ", " << rhs[i][j];
       }
-      cout << "}" << endl;
+      cout << "}," << endl;
     }
 
     else {
