@@ -1,5 +1,5 @@
-Grading at 10/22/2018:17:38:25.875629
-For commit ID b15aeade7f15a0bbad483c8dafaa69c8fcea221b
+Grading at 10/22/2018:17:43:04.842636
+For commit ID ebce6ff6bc56cc38294f206a823fa45ed46159bb
 Looking for malloc in your files
 No uses found (good).
 Looking for free in your files
@@ -17,7 +17,8 @@ make: 'sortLines' is up to date.
 Using sortLines..
 #################################################
 testcase1:
-testcase1 failed, your program didn't indicate this is a failure case
+testcase1 passed, your program successfully indicated a failure
+valgrind was clean
 #################################################
 testcase2:
 Your output is incorrect
