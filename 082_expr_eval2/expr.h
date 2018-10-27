@@ -37,7 +37,10 @@ class OpExpression : public Expression
   OpExpression(char ch, Expression * lhs, Expression * rhs) :
       ch(ch),
       left(lhs->toString()),
-      right(rhs->toString()){};
+      right(rhs->toString()) {
+    delete lhs;
+    delete rhs;
+  };
   virtual string toString() const {
     stringstream ss;
     ss << "(" << left << " " << ch << " " << right << ")";
