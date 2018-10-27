@@ -1,0 +1,18 @@
+Grading at 10/27/2018:00:34:20.984037
+For commit ID 40e639464d72c25067f990ca120830e70d95044c
+Compiling code
+The code compiled.
+---------------------
+Test case 1
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
+---------------------
+Test case 2
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
+---------------------
+Test case 3
+  - Valgrind showed memory leaks
+Valgrind reported errors (test failed).
+
+Overall Grade: F
