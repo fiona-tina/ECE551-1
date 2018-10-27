@@ -14,7 +14,7 @@ class Expression
 
 class NumExpression : public Expression
 {
- private:
+ protected:
   long num;
 
  public:
@@ -41,7 +41,9 @@ class OpExpression : public Expression
   OpExpression(char ch, Expression * lhs, Expression * rhs) :
       ch(ch),
       left(lhs->toString()),
-      right(rhs->toString()) {
+      right(rhs->toString()),
+      leftNum(lhs->evaluate()),
+      rightNum(rhs->evaluate()) {
     delete lhs;
     delete rhs;
   };
@@ -59,6 +61,7 @@ class PlusExpression : public OpExpression
  public:
   PlusExpression(Expression * lhs, Expression * rhs) : OpExpression('+', lhs, rhs){};
   virtual long evaluate() const { return leftNum + rightNum; }
+  virtual ~PlusExpression(){};
 };
 
 class MinusExpression : public OpExpression
@@ -66,6 +69,7 @@ class MinusExpression : public OpExpression
  public:
   MinusExpression(Expression * lhs, Expression * rhs) : OpExpression('-', lhs, rhs){};
   virtual long evaluate() const { return leftNum - rightNum; }
+  virtual ~MinusExpression(){};
 };
 
 class TimesExpression : public OpExpression
@@ -73,11 +77,16 @@ class TimesExpression : public OpExpression
  public:
   TimesExpression(Expression * lhs, Expression * rhs) : OpExpression('*', lhs, rhs){};
   virtual long evaluate() const { return leftNum * rightNum; }
+  virtual ~TimesExpression(){};
 };
 
 class DivExpression : public OpExpression
 {
  public:
-  DivExpression(Expression * lhs, Expression * rhs) : OpExpression('/', lhs, rhs){};
+  DivExpression(Expression * lhs, Expression * rhs) :
+      OpExpression('/', lhs, rhs){
+
+      };
   virtual long evaluate() const { return leftNum / rightNum; }
+  virtual ~DivExpression(){};
 };
