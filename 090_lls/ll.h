@@ -56,7 +56,7 @@ class LinkedList
     size = 0;
   }
   LinkedList & operator=(const LinkedList & rhs) {
-    if (*this != &rhs) {
+    if (this != &rhs) {
       LinkedList tmp(rhs);
       //delete old data
       while (head != NULL) {
