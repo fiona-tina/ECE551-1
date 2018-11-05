@@ -1,0 +1,42 @@
+#include <math.h>
+
+#include <iostream>
+
+#include "function.h"
+using namespace std;
+
+int binarySearchForZero(Function<int, int> * f, int low, int high);
+
+void check(Function<int, int> * f, int low, int high, int expected_ans, const char * mesg) {
+  unsigned maxCount = 1;
+
+  if (high > low)
+    maxCount = log2(high - low) + 1;
+  cout << "maxCount" << maxCount << endl;
+  CountedIntFn * countFunc = new CountedIntFn(maxCount, f, mesg);
+  int ans = binarySearchForZero(countFunc, low, high);
+  cout << "the output is " << ans << endl;
+  if (ans != expected_ans) {
+    fprintf(stderr, "Wrong Ans: %s", mesg);
+    exit(EXIT_FAILURE);
+  }
+}
+
+int main() {
+  SinFunction * sinFunc = new SinFunction();
+
+  check(sinFunc, 0, 100, 99, "sinfunc1");
+  check(sinFunc, 80000, 90000, 80000, "sinfunc2");
+  check(sinFunc, 52359, 100000, 52359, "sinfunc3");
+  check(sinFunc, 0, 52359, 52358, "sinfunc4");
+  check(sinFunc, -1, -1, -1, "sinfunc5");
+  //check(sinFunc, 3, 1, 52359, "sinfunc");
+  check(sinFunc, 52359, 52359, 52359, "sinfunc6");
+  check(sinFunc, 99, 99, 99, "sinfunc7");
+  check(sinFunc, 60000, 60000, 60000, "sinfunc8");
+  check(sinFunc, 1, 52359, 52358, "sinfunc9");
+  check(sinFunc, 0, 150000, 52359, "sinfunc11");
+  check(sinFunc, 0, 150000, 52359, "sinfunc11");
+  check(sinFunc, 0, 104717, 52359, "sinfunc11");
+  return 0;
+}
