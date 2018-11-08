@@ -102,6 +102,7 @@ class BstMap : public Map<K, V>
     else if (root->key < key) {
       root->right = removehelper(root->right, key);
     }
+
     else {
       if (!root->left) {
         BSTNode * right = root->right;
@@ -120,6 +121,7 @@ class BstMap : public Map<K, V>
         root->right = removehelper(root->right, minNodeRight->key);
       }
     }
+    return root;
   }
   void remove(const K & key) {
     //search
