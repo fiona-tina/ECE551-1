@@ -1,130 +1,67 @@
-Grading at 11/08/2018:15:43:04.496203
-For commit ID 785042b61f86f5985afa700c7b21b83d2f878f00
+Grading at 11/08/2018:15:51:15.395349
+For commit ID 01e83f2ce8fffeaaad97840584abdea9b049c7ef
 -----------------------------------------------
 testcase 1 : Testing with BstMap<int,int>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = int; V = int]’:
-bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::addhelper(BstMap<K, V>::BSTNode*, const K&, const V&) [with K = int; V = int]’:
-bstmap.h:67:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 2 : Testing with BstMap<int,std::string>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = int; V = std::__cxx11::basic_string<char>]’:
-bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::addhelper(BstMap<K, V>::BSTNode*, const K&, const V&) [with K = int; V = std::__cxx11::basic_string<char>]’:
-bstmap.h:67:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = int; V = Tester]’:
-bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::addhelper(BstMap<K, V>::BSTNode*, const K&, const V&) [with K = int; V = Tester]’:
-bstmap.h:67:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 4 : Testing with BstMap<std::string,int>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = std::__cxx11::basic_string<char>; V = int]’:
-bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::addhelper(BstMap<K, V>::BSTNode*, const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = int]’:
-bstmap.h:67:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 5 : Testing with BstMap<std::string,std::string>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
-bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::addhelper(BstMap<K, V>::BSTNode*, const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
-bstmap.h:67:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
-bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::addhelper(BstMap<K, V>::BSTNode*, const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
-bstmap.h:67:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 7 : Testing with BstMap<(a custom class we wrote),int>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = Tester; V = int]’:
-bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::addhelper(BstMap<K, V>::BSTNode*, const K&, const V&) [with K = Tester; V = int]’:
-bstmap.h:67:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
-bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::addhelper(BstMap<K, V>::BSTNode*, const K&, const V&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
-bstmap.h:67:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = Tester; V = Tester]’:
-bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::addhelper(BstMap<K, V>::BSTNode*, const K&, const V&) [with K = Tester; V = Tester]’:
-bstmap.h:67:3: error: control reaches end of non-void function [-Werror=return-type]
-   }
-   ^
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 
-Overall Grade: F
+Overall Grade: A
