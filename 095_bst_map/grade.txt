@@ -1,28 +1,8 @@
-Grading at 11/08/2018:15:36:01.564943
-For commit ID 5c19070f4dea59d6e5f0cc44922662976fd3a24e
+Grading at 11/08/2018:15:43:04.496203
+For commit ID 785042b61f86f5985afa700c7b21b83d2f878f00
 -----------------------------------------------
 testcase 1 : Testing with BstMap<int,int>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = int; V = int]’:
-89-tester.cpp:95:36:   required from here
-bstmap.h:26:50: error: base operand of ‘->’ has non-pointer type ‘const BstMap<int, int>’
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                                  ^~~
-bstmap.h:26:49: error: ‘copy’ was not declared in this scope
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                             ~~~~^~~~~~~~~~~
-bstmap.h:26:49: note: suggested alternative:
-In file included from /usr/include/c++/7/bits/locale_facets.h:48:0,
-                 from /usr/include/c++/7/bits/basic_ios.h:37,
-                 from /usr/include/c++/7/ios:44,
-                 from /usr/include/c++/7/ostream:38,
-                 from /usr/include/c++/7/iostream:39,
-                 from bstmap.h:3,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/streambuf_iterator.h:293:5: note:   ‘std::copy’
-     copy(istreambuf_iterator<_CharT> __first,
-     ^~~~
 In file included from 89-tester.cpp:1:0:
 bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = int; V = int]’:
 bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
@@ -38,26 +18,6 @@ The code did not compile.  This test failed.
 testcase 2 : Testing with BstMap<int,std::string>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = int; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:95:36:   required from here
-bstmap.h:26:50: error: base operand of ‘->’ has non-pointer type ‘const BstMap<int, std::__cxx11::basic_string<char> >’
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                                  ^~~
-bstmap.h:26:49: error: ‘copy’ was not declared in this scope
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                             ~~~~^~~~~~~~~~~
-bstmap.h:26:49: note: suggested alternative:
-In file included from /usr/include/c++/7/bits/locale_facets.h:48:0,
-                 from /usr/include/c++/7/bits/basic_ios.h:37,
-                 from /usr/include/c++/7/ios:44,
-                 from /usr/include/c++/7/ostream:38,
-                 from /usr/include/c++/7/iostream:39,
-                 from bstmap.h:3,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/streambuf_iterator.h:293:5: note:   ‘std::copy’
-     copy(istreambuf_iterator<_CharT> __first,
-     ^~~~
-In file included from 89-tester.cpp:1:0:
 bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = int; V = std::__cxx11::basic_string<char>]’:
 bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
    }
@@ -71,26 +31,6 @@ The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = int; V = Tester]’:
-89-tester.cpp:95:36:   required from here
-bstmap.h:26:50: error: base operand of ‘->’ has non-pointer type ‘const BstMap<int, Tester>’
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                                  ^~~
-bstmap.h:26:49: error: ‘copy’ was not declared in this scope
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                             ~~~~^~~~~~~~~~~
-bstmap.h:26:49: note: suggested alternative:
-In file included from /usr/include/c++/7/bits/locale_facets.h:48:0,
-                 from /usr/include/c++/7/bits/basic_ios.h:37,
-                 from /usr/include/c++/7/ios:44,
-                 from /usr/include/c++/7/ostream:38,
-                 from /usr/include/c++/7/iostream:39,
-                 from bstmap.h:3,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/streambuf_iterator.h:293:5: note:   ‘std::copy’
-     copy(istreambuf_iterator<_CharT> __first,
-     ^~~~
 In file included from 89-tester.cpp:1:0:
 bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = int; V = Tester]’:
 bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
@@ -106,26 +46,6 @@ The code did not compile.  This test failed.
 testcase 4 : Testing with BstMap<std::string,int>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = int]’:
-89-tester.cpp:95:36:   required from here
-bstmap.h:26:50: error: base operand of ‘->’ has non-pointer type ‘const BstMap<std::__cxx11::basic_string<char>, int>’
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                                  ^~~
-bstmap.h:26:49: error: ‘copy’ was not declared in this scope
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                             ~~~~^~~~~~~~~~~
-bstmap.h:26:49: note: suggested alternative:
-In file included from /usr/include/c++/7/bits/locale_facets.h:48:0,
-                 from /usr/include/c++/7/bits/basic_ios.h:37,
-                 from /usr/include/c++/7/ios:44,
-                 from /usr/include/c++/7/ostream:38,
-                 from /usr/include/c++/7/iostream:39,
-                 from bstmap.h:3,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/streambuf_iterator.h:293:5: note:   ‘std::copy’
-     copy(istreambuf_iterator<_CharT> __first,
-     ^~~~
-In file included from 89-tester.cpp:1:0:
 bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = std::__cxx11::basic_string<char>; V = int]’:
 bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
    }
@@ -139,26 +59,6 @@ The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 5 : Testing with BstMap<std::string,std::string>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:95:36:   required from here
-bstmap.h:26:50: error: base operand of ‘->’ has non-pointer type ‘const BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >’
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                                  ^~~
-bstmap.h:26:49: error: ‘copy’ was not declared in this scope
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                             ~~~~^~~~~~~~~~~
-bstmap.h:26:49: note: suggested alternative:
-In file included from /usr/include/c++/7/bits/locale_facets.h:48:0,
-                 from /usr/include/c++/7/bits/basic_ios.h:37,
-                 from /usr/include/c++/7/ios:44,
-                 from /usr/include/c++/7/ostream:38,
-                 from /usr/include/c++/7/iostream:39,
-                 from bstmap.h:3,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/streambuf_iterator.h:293:5: note:   ‘std::copy’
-     copy(istreambuf_iterator<_CharT> __first,
-     ^~~~
 In file included from 89-tester.cpp:1:0:
 bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
 bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
@@ -174,26 +74,6 @@ The code did not compile.  This test failed.
 testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
-89-tester.cpp:95:36:   required from here
-bstmap.h:26:50: error: base operand of ‘->’ has non-pointer type ‘const BstMap<std::__cxx11::basic_string<char>, Tester>’
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                                  ^~~
-bstmap.h:26:49: error: ‘copy’ was not declared in this scope
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                             ~~~~^~~~~~~~~~~
-bstmap.h:26:49: note: suggested alternative:
-In file included from /usr/include/c++/7/bits/locale_facets.h:48:0,
-                 from /usr/include/c++/7/bits/basic_ios.h:37,
-                 from /usr/include/c++/7/ios:44,
-                 from /usr/include/c++/7/ostream:38,
-                 from /usr/include/c++/7/iostream:39,
-                 from bstmap.h:3,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/streambuf_iterator.h:293:5: note:   ‘std::copy’
-     copy(istreambuf_iterator<_CharT> __first,
-     ^~~~
-In file included from 89-tester.cpp:1:0:
 bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
 bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
    }
@@ -207,26 +87,6 @@ The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 7 : Testing with BstMap<(a custom class we wrote),int>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = Tester; V = int]’:
-89-tester.cpp:95:36:   required from here
-bstmap.h:26:50: error: base operand of ‘->’ has non-pointer type ‘const BstMap<Tester, int>’
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                                  ^~~
-bstmap.h:26:49: error: ‘copy’ was not declared in this scope
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                             ~~~~^~~~~~~~~~~
-bstmap.h:26:49: note: suggested alternative:
-In file included from /usr/include/c++/7/bits/locale_facets.h:48:0,
-                 from /usr/include/c++/7/bits/basic_ios.h:37,
-                 from /usr/include/c++/7/ios:44,
-                 from /usr/include/c++/7/ostream:38,
-                 from /usr/include/c++/7/iostream:39,
-                 from bstmap.h:3,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/streambuf_iterator.h:293:5: note:   ‘std::copy’
-     copy(istreambuf_iterator<_CharT> __first,
-     ^~~~
 In file included from 89-tester.cpp:1:0:
 bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = Tester; V = int]’:
 bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
@@ -242,26 +102,6 @@ The code did not compile.  This test failed.
 testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
-89-tester.cpp:95:36:   required from here
-bstmap.h:26:50: error: base operand of ‘->’ has non-pointer type ‘const BstMap<Tester, std::__cxx11::basic_string<char> >’
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                                  ^~~
-bstmap.h:26:49: error: ‘copy’ was not declared in this scope
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                             ~~~~^~~~~~~~~~~
-bstmap.h:26:49: note: suggested alternative:
-In file included from /usr/include/c++/7/bits/locale_facets.h:48:0,
-                 from /usr/include/c++/7/bits/basic_ios.h:37,
-                 from /usr/include/c++/7/ios:44,
-                 from /usr/include/c++/7/ostream:38,
-                 from /usr/include/c++/7/iostream:39,
-                 from bstmap.h:3,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/streambuf_iterator.h:293:5: note:   ‘std::copy’
-     copy(istreambuf_iterator<_CharT> __first,
-     ^~~~
-In file included from 89-tester.cpp:1:0:
 bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
 bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
    }
@@ -275,26 +115,6 @@ The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
 ...compiling...
-In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = Tester; V = Tester]’:
-89-tester.cpp:95:36:   required from here
-bstmap.h:26:50: error: base operand of ‘->’ has non-pointer type ‘const BstMap<Tester, Tester>’
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                                  ^~~
-bstmap.h:26:49: error: ‘copy’ was not declared in this scope
-   BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
-                                             ~~~~^~~~~~~~~~~
-bstmap.h:26:49: note: suggested alternative:
-In file included from /usr/include/c++/7/bits/locale_facets.h:48:0,
-                 from /usr/include/c++/7/bits/basic_ios.h:37,
-                 from /usr/include/c++/7/ios:44,
-                 from /usr/include/c++/7/ostream:38,
-                 from /usr/include/c++/7/iostream:39,
-                 from bstmap.h:3,
-                 from 89-tester.cpp:1:
-/usr/include/c++/7/bits/streambuf_iterator.h:293:5: note:   ‘std::copy’
-     copy(istreambuf_iterator<_CharT> __first,
-     ^~~~
 In file included from 89-tester.cpp:1:0:
 bstmap.h: In member function ‘BstMap<K, V>::BSTNode* BstMap<K, V>::removehelper(BstMap<K, V>::BSTNode*, const K&) [with K = Tester; V = Tester]’:
 bstmap.h:122:3: error: control reaches end of non-void function [-Werror=return-type]
