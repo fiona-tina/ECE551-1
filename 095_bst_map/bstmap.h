@@ -23,7 +23,7 @@ class BstMap : public Map<K, V>
   BSTNode * root;
 
   BstMap() : root(NULL){};
-  BstMap(const BstMap & rhs) : root(NULL) { copy(rhs->root); }
+  BstMap(const BstMap & rhs) : root(NULL) { deepcopy(rhs.root); }
   BstMap operator=(const BstMap & rhs) {
     if (this != &rhs) {
       BstMap tmp(rhs);
@@ -34,8 +34,8 @@ class BstMap : public Map<K, V>
   void deepcopy(BSTNode * node) {
     if (node) {
       add(node->key, node->val);
-      copy(node->left);
-      copy(node->right);
+      deepcopy(node->left);
+      deepcopy(node->right);
     }
   }
   void printhelper(BSTNode * node) {

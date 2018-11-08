@@ -8,11 +8,13 @@
 using namespace std;
 
 int main() {
-  BstMap<int, string> aBst;
+  BstMap<int, string> bBst;
   try {
-    aBst.add(5, "root");
-    aBst.add(3, "left");
-    aBst.add(7, "right");
+    bBst.add(5, "root");
+    bBst.add(3, "left");
+    bBst.add(7, "right");
+
+    BstMap<int, string> aBst(bBst);
     cout << aBst.root->val;
     //cout << aBst.root->left->val;
     //cout << aBst.root->right->val;
