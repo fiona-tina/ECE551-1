@@ -54,16 +54,17 @@ class BstMap : public Map<K, V>
       BSTNode * newNode = new BSTNode(key, val);
       return newNode;
     }
-    else if (key < node->key) {
-      node->left = addhelper(node->left, key, val);
-    }
-    else if (key > node->key) {
-      node->right = addhelper(node->right, key, val);
-    }
-    else {
+    else if (key == node->key) {
       node->val = val;
       return node;
     }
+    if (key < node->key) {
+      node->left = addhelper(node->left, key, val);
+    }
+    else {
+      node->right = addhelper(node->right, key, val);
+    }
+    return node;
   }
   void add(const K & key, const V & val) { root = addhelper(root, key, val); }
 
