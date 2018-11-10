@@ -92,7 +92,7 @@ int main(int argc, char ** argv) {
     findFiles(argv[i], mp);
   }
 
-  cout << "#!/bin/bash";
+  cout << "#!/bin/bash\n";
   printFile(mp);
   return 0;
 }
