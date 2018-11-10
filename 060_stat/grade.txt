@@ -1,4 +1,4 @@
-Grading at 11/10/2018:22:15:41.609191
+Grading at 11/10/2018:23:27:36.533567
 For commit ID bdf7a56118cd37bdd0eaaaa19941b6676e90ecaa
 Attempting to compile mystat.c
 Your code seems to compile fine.
@@ -431,6 +431,6 @@ Note from the grader:
 Do abstraction for the action in 'switch case'. No comments, variable naming is good.
 Total points 6 / 9 = 66.66 % 
  -> This is 15% of your overall grade on this assignment
-Total: 0.85 * 85.00 + 0.15 * 66.66=82.24
+Total: 0.85 * 100 + 0.15 * 66.66=94.99
 
-Overall Grade: 82.24
+Overall Grade: 94.99
