@@ -1,6 +1,7 @@
 #include "readFreq.h"
 
 #include <stdio.h>
+#include <string.h>
 
 #include <cstdlib>
 #include <fstream>
@@ -27,14 +28,18 @@ uint64_t * readFrequencies(const char * fname) {
   //WRITE ME!
   FILE * f;
   int c;
-  uint64_t * res;
-  res = (uint64_t *)malloc(257 * sizeof(*res));
+  uint64_t * res = new uint64_t[257];
+  //memset(res, 0, 257);
+  for (int i = 0; i < 257; ++i) {
+    res[i] = 0;
+  }
   res[256] = 1;
   f = fopen(fname, "r");
   if (f == NULL)
     perror("cant open file");
-  while ((c = getc(f)) != EOF) {
+  while ((c = fgetc(f)) != EOF) {
     res[c]++;
   }
+  fclose(f);
   return res;
 }
