@@ -8,9 +8,9 @@ Node * buildTree(uint64_t * counts) {
       pq.push(new Node(i, counts[i]));
   }
   while (pq.size() > 1) {
-    Node * right = pq.top();
-    pq.pop();
     Node * left = pq.top();
+    pq.pop();
+    Node * right = pq.top();
     pq.pop();
     Node * newRoot = new Node(left, right);
     pq.push(newRoot);
