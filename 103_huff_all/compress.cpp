@@ -41,9 +41,15 @@ void writeCompressedOutput(const char * inFile,
     exit(1);
   }
 
-  char c;
+  int c;
   while ((c = fgetc(ifile)) != EOF) {
-    bfw.writeBitString(theMap.find(c)->second);
+    unsigned ch = (unsigned)c;
+    if (theMap.find(ch) != theMap.end())
+      bfw.writeBitString(theMap.find(ch)->second);
+    else {
+      cout << "char not found!";
+      exit(1);
+    }
   }
   bfw.writeBitString(theMap.find(256)->second);
   fclose(ifile);
