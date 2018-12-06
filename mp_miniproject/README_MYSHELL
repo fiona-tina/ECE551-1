@@ -1,0 +1,13 @@
+MiniProject: RX29
+
+This is an implemention of a simplified shell using C++.
+
+myShell is able to to:
+
+Read a command name and run it.
+Distinguish '\ ' and redundant space.
+Set, inc and export variables.
+Use cd to change working directory
+Redirect STDIN, STDOUT and STDERR
+
+The testing document is: TESTING.txt

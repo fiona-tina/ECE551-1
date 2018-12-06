@@ -1,0 +1,758 @@
+This test cases file contains my test cases regarding the shell.
+
+myShell should be able to achieve step 1, step 2, step 3 and part of step 4(Redirection ONLY).
+
+
+
+
+************************test cases for step 1********************************
+
+-------------
+test case 1:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testOutput  
+
+Output:
+This program output this string to STDOUT
+Program exited with status 0
+
+This is correct because ./testOutput will cout a string. 
+Also myShell indicated the exit status of ./testOutput.
+New Prompt is also shown.
+
+-------------
+test case 2:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testArgs second third
+
+Output:
+testArgs: testArgs.cpp:6: int main(int, char**): Assertion `argc == 2' failed.
+Program was killed by signal 6
+
+This is correct because the ./testArgs will assert if the argc is not 2.
+In this case, the argc is 1. So the program was killed by signal 6 and 
+myShell displayed this. New Prompt is also shown.
+
+-------------
+test case 3:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $exit
+
+Output:
+exit myshell..
+==32860== 
+==32860== HEAP SUMMARY:
+==32860==     in use at exit: 0 bytes in 0 blocks
+==32860==   total heap usage: 141 allocs, 141 frees, 83,024 bytes allocated
+==32860== 
+==32860== All heap blocks were freed -- no leaks are possible
+==32860== 
+==32860== For counts of detected and suppressed errors, rerun with: -v
+==32860== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+This is correct because myShell exit when user input exit. "exit myshell.."
+is a string that my implementation will display when it exit. Also, note that
+the valgrind is clean.
+
+-------------
+test case 4:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $ EOF(control+D)
+
+Output:
+exit myshell...
+==58180== 
+==58180== HEAP SUMMARY:
+==58180==     in use at exit: 0 bytes in 0 blocks
+==58180==   total heap usage: 19 allocs, 19 frees, 75,938 bytes allocated
+==58180== 
+==58180== All heap blocks were freed -- no leaks are possible
+==58180== 
+==58180== For counts of detected and suppressed errors, rerun with: -v
+==58180== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+This is correct because the shell can also exit when it EOF is input.
+Valgrind clean.
+
+-------------
+test case 5:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $sdf EOF(control+D)EOF(control+D)
+
+Output:
+exit myshell...
+==58180== 
+==58180== HEAP SUMMARY:
+==58180==     in use at exit: 0 bytes in 0 blocks
+==58180==   total heap usage: 19 allocs, 19 frees, 75,938 bytes allocated
+==58180== 
+==58180== All heap blocks were freed -- no leaks are possible
+==58180== 
+==58180== For counts of detected and suppressed errors, rerun with: -v
+==58180== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+This is correct because the shell can also exit when it EOF is input after
+a string. Valgrind clean.
+
+
+************************test cases for step 2********************************
+
+-------------
+test case 6:
+Input: 
+myShell:/home/rx29/ece551/mp_miniproject $./testArgs secondArg
+
+Output:
+Arguments Value 0 is ./testArgs
+Arguments Value 1 is secondArg
+Program exited with status 0
+
+This is correct because ./testArgs will take two arguments and 
+cout the arguments accordingly. New Prompt is also shown.
+
+-------------
+test case 7:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $ls
+
+Output:
+Arguments.h	  Makefile	outout.txt  testArgs	    testSTDIN.cpp
+commandShell.txt  myShell	Parser.h    testArgs.cpp    Variables.h
+Environs.h	  myShell.cpp	README	    testOutput
+input		  myShell.cpp~	Shell.h     testOutput.cpp
+__MACOSX	  numerics.txt	Support.h   testSTDIN
+Program exited with status 0
+
+This is correct because myShell is able to search the PATH to find the ls.
+ls is executed correctly with a status 0;
+
+-------------
+test case 8:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $ls -l
+
+Output:
+total 708
+-rw-r--r-- 1 rx29 rx29   1037 Dec  5 13:36 Arguments.h
+-rw-rw-r-- 1 rx29 rx29   7055 Nov 12 22:46 commandShell.txt
+-rw-r--r-- 1 rx29 rx29    378 Dec  5 14:11 Environs.h
+-rw-r--r-- 1 rx29 rx29     27 Dec  5 14:00 input
+drwxrwxr-x 2 rx29 rx29    227 Dec  5 14:47 __MACOSX
+-rw-rw-r-- 1 rx29 rx29    383 Dec  5 15:34 Makefile
+-rwxrwxr-x 1 rx29 rx29 367256 Dec  5 15:40 myShell
+-rw-r--r-- 1 rx29 rx29   4167 Dec  5 15:40 myShell.cpp
+-rw-r--r-- 1 rx29 rx29   4168 Dec  5 15:36 myShell.cpp~
+-rw-rw-r-- 1 rx29 rx29   8881 Nov 12 22:46 numerics.txt
+-rw------- 1 rx29 rx29     42 Dec  5 15:43 outout.txt
+-rw-r--r-- 1 rx29 rx29   4903 Dec  5 14:38 Parser.h
+-rw-rw-r-- 1 rx29 rx29   2475 Nov 12 22:46 README
+-rw-r--r-- 1 rx29 rx29   4825 Dec  5 14:39 Shell.h
+-rw-r--r-- 1 rx29 rx29   1105 Dec  5 14:39 Support.h
+-rwxrwxr-x 1 rx29 rx29  75888 Dec  5 15:37 testArgs
+-rw-r--r-- 1 rx29 rx29    241 Dec  5 15:37 testArgs.cpp
+-rwxrwxr-x 1 rx29 rx29  75152 Dec  5 15:37 testOutput
+-rw-r--r-- 1 rx29 rx29    132 Dec  5 13:52 testOutput.cpp
+-rwxrwxr-x 1 rx29 rx29 100792 Dec  5 15:37 testSTDIN
+-rw-r--r-- 1 rx29 rx29    199 Dec  5 14:02 testSTDIN.cpp
+-rw-r--r-- 1 rx29 rx29   2136 Dec  5 14:31 Variables.h
+Program exited with status 0
+
+This is correct because the shell is able to take args for programs in 
+the PATH. The output is the same as input ls -l in bash.
+
+-------------
+test case 9:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $  ls   -l
+Output:
+total 708
+-rw-r--r-- 1 rx29 rx29   1037 Dec  5 13:36 Arguments.h
+-rw-rw-r-- 1 rx29 rx29   7055 Nov 12 22:46 commandShell.txt
+-rw-r--r-- 1 rx29 rx29    378 Dec  5 14:11 Environs.h
+-rw-r--r-- 1 rx29 rx29     27 Dec  5 14:00 input
+drwxrwxr-x 2 rx29 rx29    227 Dec  5 14:47 __MACOSX
+-rw-rw-r-- 1 rx29 rx29    383 Dec  5 15:34 Makefile
+-rwxrwxr-x 1 rx29 rx29 367256 Dec  5 15:40 myShell
+-rw-r--r-- 1 rx29 rx29   4167 Dec  5 15:40 myShell.cpp
+-rw-r--r-- 1 rx29 rx29   4168 Dec  5 15:36 myShell.cpp~
+-rw-rw-r-- 1 rx29 rx29   8881 Nov 12 22:46 numerics.txt
+-rw------- 1 rx29 rx29     42 Dec  5 15:43 outout.txt
+-rw-r--r-- 1 rx29 rx29   4903 Dec  5 14:38 Parser.h
+-rw-rw-r-- 1 rx29 rx29   2475 Nov 12 22:46 README
+-rw-r--r-- 1 rx29 rx29   4825 Dec  5 14:39 Shell.h
+-rw-r--r-- 1 rx29 rx29   1105 Dec  5 14:39 Support.h
+-rwxrwxr-x 1 rx29 rx29  75888 Dec  5 15:37 testArgs
+-rw-r--r-- 1 rx29 rx29    241 Dec  5 15:37 testArgs.cpp
+-rwxrwxr-x 1 rx29 rx29  75152 Dec  5 15:37 testOutput
+-rw-r--r-- 1 rx29 rx29    132 Dec  5 13:52 testOutput.cpp
+-rwxrwxr-x 1 rx29 rx29 100792 Dec  5 15:37 testSTDIN
+-rw-r--r-- 1 rx29 rx29    199 Dec  5 14:02 testSTDIN.cpp
+-rw-r--r-- 1 rx29 rx29   2136 Dec  5 14:31 Variables.h
+Program exited with status 0
+
+This is correct because the redundant space is parsed and does not affect ls -l
+
+-------------
+test case 10:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testArgs space\ space
+
+Output:
+Arguments Value 0 is ./testArgs
+Arguments Value 1 is space space
+Program exited with status 0
+
+This is correct because ./testArgs taks 2 args and display them.
+The space after '\' is considered a space within the argument.
+
+-------------
+test case 11:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testArgs\ space
+
+Output:
+cannot execve: No such file or directory
+Program exited with status 1
+
+This is correct because '\ 'makes the space a part of argv[0].
+The shell cannot find such a file.
+
+-------------
+test case 12:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $cat testArgs.cpp testOutput.cpp
+
+Output:
+#include <assert.h>
+
+#include <iostream>
+using namespace std;
+int main(int argc, char * argv[]) {
+	assert(argc == 2);
+	cout << "Arguments Value 0 is " << argv[0] << endl;
+	cout << "Arguments Value 1 is " << argv[1] << endl;
+	return 0;
+}
+#include <iostream>
+
+using namespace std;
+int main(int argc, char *argv[]) {
+	cout<<"This program output this string to STDOUT\n";
+}Program exited with status 0
+
+This is correct because cat outputs the testArgs.cpp and testOutput.cpp correctly.
+
+-------------
+test case 13:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./dpArgs a\ b c\ \ d
+
+Output:
+the 0 th argument is: ./dpArgs
+the 1 th argument is: a b
+the 2 th argument is: c  d
+Program exited with status 0
+
+This is correct because the ./dpArgs successfully parsed the arguments with '\ '
+
+-------------
+test case 14:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./dpArgs a\  b c \ d
+
+Output:
+the 0 th argument is: ./dpArgs
+the 1 th argument is: a 
+the 2 th argument is: b
+the 3 th argument is: c
+the 4 th argument is:  d
+Program exited with status 0
+
+This is correct because the program have arguments "a " "b" "c" and " d," 
+as the non-escaped spaces separate arguments.
+
+-------------
+test case 15:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./dpArgs a         b    23
+
+Output:
+the 0 th argument is: ./dpArgs
+the 1 th argument is: a
+the 2 th argument is: b
+the 3 th argument is: 23
+Program exited with status 0
+
+This is correct because myShell ignored the useless space in between.
+
+-------------
+test case 16:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $abc
+Output:
+Command abc not found
+
+This is correct because there are no such file found in PATH and myShell outputs
+Command commandName not found
+
+
+************************test cases for step 3********************************
+
+-------------
+test case 17:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $cd ..
+
+Output:
+myShell:/home/rx29/ece551 $
+
+This is correct because the cd command can change the prompt
+
+-------------
+test case 18:
+Input:
+myShell:/home/rx29/ece551 $ cd ..
+
+Output:
+myShell:/home/rx29 $
+
+This is correct because because the cd command can change the prompt and also
+the actuall working directory of myShell
+
+-------------
+test case 19:
+Input:
+myShell:/home/rx29 $cd ./ece551/mp_miniproject
+
+Output:
+myShell:/home/rx29/ece551/mp_miniproject
+
+
+This is correct because moving forward is also correct
+
+-------------
+test case 20:
+Input:
+myShell:/home/rx29/ece551 $exit
+myShell:/home/rx29/ece551 $EOF
+
+Output:
+exit myshell..
+==29076== 
+==29076== HEAP SUMMARY:
+==29076==     in use at exit: 0 bytes in 0 blocks
+==29076==   total heap usage: 361 allocs, 361 frees, 95,816 bytes allocated
+==29076== 
+==29076== All heap blocks were freed -- no leaks are possible
+==29076== 
+==29076== For counts of detected and suppressed errors, rerun with: -v
+==29076== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+rx29@ece551:~/ece551/mp_miniproject$ 
+
+This is correct because when we exit myShell in another directory, we will go
+back to the original directory where we started myshell. Valgrind clean.
+
+-------------
+test case 21:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $cd dummy
+
+Output:
+Invalid directory!
+
+This is correct because dummy is not a valid directory. Thus myShell will do nothing
+and prompt user that the directory is not correct.
+
+-------------
+test case 22:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $set VAR var
+myShell:/home/rx29/ece551/mp_miniproject $echo $VAR
+
+Output:
+var
+Program exited with status 0
+
+This is correct because VAR is set to var. When we use echo command, we get the value
+of VAR
+
+-------------
+test case 23:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $set VAR 666
+myShell:/home/rx29/ece551/mp_miniproject $inc VAR
+myShell:/home/rx29/ece551/mp_miniproject $echo $VAR
+
+Output:
+667
+Program exited with status 0
+
+This is correct because inc increased the value of VAR
+
+-------------
+test case 24:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $set VAR vvv
+myShell:/home/rx29/ece551/mp_miniproject $inc VAR
+myShell:/home/rx29/ece551/mp_miniproject $echo $VAR
+
+Output:
+1
+Program exited with status 0
+
+This is correct because when VAR is not a number, inc will change it to 0
+and add 1.
+
+-------------
+test case 25:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $inc VAR_
+myShell:/home/rx29/ece551/mp_miniproject $echo $VAR_
+
+Output:
+1
+Program exited with status 0
+
+This is correct because for a varibable that is not set, inc will set it and 
+give 1 to its value
+
+-------------
+test case 26:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $set v1 sdf
+myShell:/home/rx29/ece551/mp_miniproject $inc v1
+
+Output:
+Variable should only contains a-zA-Zand_
+
+This is correct because myshell will not set a invalue value name;
+
+-------------
+test case 27:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $set VAR space\ space
+myShell:/home/rx29/ece551/mp_miniproject $echo $VAR
+
+Output:
+space space
+Program exited with status 0
+
+This is correct because '\ ' still works here
+
+-------------
+test case 28:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $set NEWVAR this is a new var
+myShell:/home/rx29/ece551/mp_miniproject $inc VAR 3
+myShell:/home/rx29/ece551/mp_miniproject $export
+myShell:/home/rx29/ece551/mp_miniproject $set
+
+Output:
+wrong argc
+
+This is correct because the argments counts is fixed for set, inc and export
+
+-------------
+test case 29:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $set NewVAR new
+myShell:/home/rx29/ece551/mp_miniproject $export NewVAR 
+myShell:/home/rx29/ece551/mp_miniproject $env
+
+Output:
+	before:
+		...SSH_CONNECTION=10.197.65.216 52330 152.3.77.223 22
+		EDITOR=emacs -nw
+		GLIBCXX_FORCE_NEW=1
+		LD_PRELOAD=
+		Program exited with status 0
+		
+	after:
+		...SSH_CONNECTION=10.197.65.216 52330 152.3.77.223 22
+		EDITOR=emacs -nw
+		GLIBCXX_FORCE_NEW=1
+		LD_PRELOAD=
+		NewVAR=new
+		Program exited with status 0
+
+
+This is correct because export added the {NewVAR, new} pair to the env
+
+-------------
+test case 30:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $set PATH /fakePath/fake
+myShell:/home/rx29/ece551/mp_miniproject $export PATH
+myShell:/home/rx29/ece551/mp_miniproject $env
+
+Output:
+Command env not found
+
+This is correct because PATH is changed to /fakePath/fake.
+We can no longer access env
+
+-------------
+test case 31:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $set PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/fakePath
+myShell:/home/rx29/ece551/mp_miniproject $export PATH
+myShell:/home/rx29/ece551/mp_miniproject $env
+
+Output:
+...
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/fakePath
+...
+
+This is correct because we append /fakePath to PATH this time. By calling 
+env, it is clear the the value of PATH is changed.
+
+-------------
+test case 32:
+Input: 
+myShell:/home/rx29/ece551/mp_miniproject $exit
+rx29@ece551:~/ece551/mp_miniproject$ env
+Output:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+
+This is correct because PATH should remain unchanged after exit myShell.
+
+-------------
+test case 33:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $set VAR ls
+myShell:/home/rx29/ece551/mp_miniproject $$VAR
+
+Output:
+Arguments.h	  input		outputAll	 Shell.h	   testArgs.cpp    testSTDERR.cpp
+commandShell.txt  Makefile	Parser.h	 Support.h	   TESTING.txt	   testSTDIN
+dpArgs		  myShell	README		 testAllRedir	   testOutput	   testSTDIN.cpp
+dpArgs.cpp	  myShell.cpp	README_MYSHELL	 testAllRedir.cpp  testOutput.cpp  Variables.h
+Environs.h	  numerics.txt	README_MYSHELL~  testArgs	   testSTDERR
+Program exited with status 0
+
+
+This is correct because VAR stands for ls. When we call $VAR, ls should be called.
+
+-------------
+test case 34:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $set VAR ls\ -l
+myShell:/home/rx29/ece551/mp_miniproject $$VAR
+
+Output:
+total 1008
+-rw-r--r-- 1 rx29 rx29   1160 Dec  5 18:18 Arguments.h
+-rw-rw-r-- 1 rx29 rx29   7055 Nov 12 22:46 commandShell.txt
+-rwxrwxr-x 1 rx29 rx29  75408 Dec  5 19:21 dpArgs
+-rw-rw-r-- 1 rx29 rx29    199 Dec  5 16:45 dpArgs.cpp
+-rw-r--r-- 1 rx29 rx29    378 Dec  5 14:11 Environs.h
+-rw-r--r-- 1 rx29 rx29     32 Dec  5 18:14 input
+-rw-rw-r-- 1 rx29 rx29    623 Dec  5 19:02 Makefile
+-rwxrwxr-x 1 rx29 rx29 367096 Dec  5 19:21 myShell
+-rw-r--r-- 1 rx29 rx29   4167 Dec  5 17:07 myShell.cpp
+-rw-rw-r-- 1 rx29 rx29   8881 Nov 12 22:46 numerics.txt
+-rw------- 1 rx29 rx29     35 Dec  5 19:03 outputAll
+-rw-r--r-- 1 rx29 rx29   5505 Dec  5 18:17 Parser.h
+-rw-rw-r-- 1 rx29 rx29   2475 Nov 12 22:46 README
+-rw-rw-r-- 1 rx29 rx29    308 Dec  5 19:34 README_MYSHELL
+-rw-rw-r-- 1 rx29 rx29    289 Dec  5 19:34 README_MYSHELL~
+-rw-r--r-- 1 rx29 rx29   5097 Dec  5 18:23 Shell.h
+-rw-r--r-- 1 rx29 rx29   1488 Dec  5 18:21 Support.h
+-rwxrwxr-x 1 rx29 rx29 108704 Dec  5 19:21 testAllRedir
+-rw-rw-r-- 1 rx29 rx29    240 Dec  5 18:54 testAllRedir.cpp
+-rwxrwxr-x 1 rx29 rx29  75888 Dec  5 19:21 testArgs
+-rw-r--r-- 1 rx29 rx29    241 Dec  5 15:37 testArgs.cpp
+-rw-rw-r-- 1 rx29 rx29  18451 Dec  5 19:27 TESTING.txt
+-rwxrwxr-x 1 rx29 rx29  75152 Dec  5 19:21 testOutput
+-rw-r--r-- 1 rx29 rx29    132 Dec  5 13:52 testOutput.cpp
+-rwxrwxr-x 1 rx29 rx29  82920 Dec  5 19:21 testSTDERR
+-rw-rw-r-- 1 rx29 rx29    140 Dec  5 18:43 testSTDERR.cpp
+-rwxrwxr-x 1 rx29 rx29 100792 Dec  5 19:21 testSTDIN
+-rw-r--r-- 1 rx29 rx29    199 Dec  5 14:02 testSTDIN.cpp
+-rw-r--r-- 1 rx29 rx29   2367 Dec  5 18:19 Variables.h
+Program exited with status 0
+
+
+This is correct because VAR stands for ls -l. When we call $VAR,
+ ls -l should be called. This is a more complex testcase than
+the previous one. 
+
+-------------
+test case 35:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $set VAR sssss  
+myShell:/home/rx29/ece551/mp_miniproject $./dpArgs ...$VAR...
+
+Output:
+the 0 th argument is: ./dpArgs
+the 1 th argument is: ...sssss...
+Program exited with status 0
+
+
+This is correct because the argument contains a variable 
+and it should be replaced by its value.
+
+
+************************test cases for step 4********************************
+
+-------------
+test case 36:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testSTDIN
+from cin
+
+Output:
+Getting a string from STDIN...
+from cin
+...The string is: from cin
+
+This is correct because ./testSTDIN takes an input from STDIN and output it to STDOUT
+
+-------------
+test case 37:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testSTDIN < input
+
+Output:
+Getting a string from STDIN...
+...The string is: This is a string in ./input file
+Program exited with status 0
+
+This is correct because ./testSTDIN takes an input from input and output it to STDOUT
+
+-------------
+test case 38:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testSTDIN <input
+
+Output:
+redir format is not correct: No such file or directory
+
+This is correct because the format is not correct.
+
+-------------
+test case 39:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testOutput
+
+Output:
+This program output this string to STDOUT
+Program exited with status 0
+
+This is correct because ./testOutput output a string to stdout.
+
+-------------
+test case 40:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testOutput > output
+myShell:/home/rx29/ece551/mp_miniproject $cat output
+
+Output:
+Program exited with status 0
+
+This program output this string to STDOUT
+Program exited with status 0
+
+This is correct because STDOUT is redirected to file ./output.
+
+-------------
+test case 41:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testOutput >output
+
+Output:
+redir format is not correct: No such file or directory
+
+This is correct because the format is not correct.
+
+-------------
+test case 42:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testSTDIN < input > output
+myShell:/home/rx29/ece551/mp_miniproject $cat output
+
+Output:
+Program exited with status 0
+
+Getting a string from STDIN...
+...The string is: This is a string in ./input file
+Program exited with status 0
+
+This is correct because the string in the input file is outputed to the
+outputfile.
+
+-------------
+test case 43:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testSTDERR
+
+
+Output:
+an error: Success
+Program exited with status 0
+
+This is correct because ./testSTDERR is a file with only one line of code
+perror("an error")
+
+-------------
+test case 44:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testSTDERR 2> error
+myShell:/home/rx29/ece551/mp_miniproject $cat error
+
+Output:
+Program exited with status 0
+an error: Success
+Program exited with status 0
+
+This is correct because 2> error redirects the STDERR to the error file
+
+-------------
+test case 45:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testAllRedir
+sdf
+
+Output:
+you have just STDIN a string :sdf
+error happens..: Success
+Program exited with status 0
+
+
+This is correct because ./testAllRedir takes a input from cin, output it to cout
+and perror(error happens..)。
+
+-------------
+test case 46:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./testAllRedir < input > outputAll 2> outputErr
+myShell:/home/rx29/ece551/mp_miniproject $cat input
+myShell:/home/rx29/ece551/mp_miniproject $cat outputAll
+myShell:/home/rx29/ece551/mp_miniproject $cat outputErr
+
+Output:
+	input: This is a string in ./input file
+	output: you have just STDIN a string :This
+	outputErr: error happens..: Success
+
+This is correct because ./testAllRedir take input from ./input file instead of STDIN. As 
+it used 'cin', only the first word in ./input is send to ./testAllRedir. ./testAllRedir
+output to ./outputAll and STDERR is changed to ./outputErr
+
+-------------
+test case 47:
+Input:
+myShell:/home/rx29/ece551/mp_miniproject $./dpArgs arg1 arg2 arg\ space3    arg4  > output
+myShell:/home/rx29/ece551/mp_miniproject $cat output
+
+Output:
+	the 0 th argument is: ./dpArgs
+	the 1 th argument is: arg1
+	the 2 th argument is: arg2
+	the 3 th argument is: arg space3
+	the 4 th argument is: arg4
+	Program exited with status 0
+
+This is correct because it combines the regulations in previous steps.
+
+
