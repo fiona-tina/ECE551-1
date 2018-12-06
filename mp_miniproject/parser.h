@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-#include "Arguments.h"
+#include "arguments.h"
 using namespace std;
 //This class contains functions related to input string parse
 class Parser

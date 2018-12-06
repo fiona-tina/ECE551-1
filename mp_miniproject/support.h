@@ -22,8 +22,8 @@
 #include <utility>
 #include <vector>
 
-#include "Arguments.h"
-#include "Environs.h"
+#include "arguments.h"
+#include "environs.h"
 using namespace std;
 
 // This function is used to check if a file is contained

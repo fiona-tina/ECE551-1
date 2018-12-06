@@ -21,10 +21,10 @@
 #include <utility>
 #include <vector>
 
-#include "Arguments.h"
-#include "Environs.h"
-#include "Parser.h"
-#include "Support.h"
+#include "arguments.h"
+#include "environs.h"
+#include "parser.h"
+#include "support.h"
 // This shell class contains functions related to execute
 using namespace std;
 

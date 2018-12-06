@@ -19,12 +19,12 @@
 #include <utility>
 #include <vector>
 
-#include "Arguments.h"
-#include "Environs.h"
-#include "Parser.h"
-#include "Shell.h"
-#include "Support.h"
-#include "Variables.h"
+#include "arguments.h"
+#include "environs.h"
+#include "parser.h"
+#include "shell.h"
+#include "support.h"
+#include "variables.h"
 
 using namespace std;
 
