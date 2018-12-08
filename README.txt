@@ -1,3 +1,6 @@
+DO NOT LOOK THE CODE IF YOU HAVE NOT FINISHED THE ASSIGNMENT
+
+
 Welcome to your ece551 git repository.
 
 The first thing you should do is 
